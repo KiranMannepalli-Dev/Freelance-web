@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Code, Smartphone, PenTool, LayoutTemplate, LineChart, Users, ArrowRight, CheckCircle2, Bot, Workflow } from 'lucide-react';
+import { Code, Smartphone, PenTool, LayoutTemplate, LineChart, Users, ArrowRight, CheckCircle2, Bot, Workflow, Download, Eye, FileText } from 'lucide-react';
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
+import BrochureModal from '../components/BrochureModal';
 import { 
   WebIllustration, 
   AppIllustration, 
@@ -75,6 +76,7 @@ export default function Services() {
   ];
 
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
 
   return (
     <div className="w-full bg-white text-[#0B0B0F]">
@@ -101,9 +103,28 @@ export default function Services() {
           >
             End-to-End Solutions for <span className="text-[#EF4444]">Modern Businesses</span>
           </h1>
-          <p className="text-[#475569] text-base sm:text-lg max-w-3xl leading-relaxed">
+          <p className="text-[#475569] text-base sm:text-lg max-w-3xl leading-relaxed mb-6">
             From single-page web applications to complex enterprise ERPs and cross-platform mobile apps, we design and build software that scales.
           </p>
+
+          {/* Brochure Actions */}
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="/tekloria-services-brochure.pdf"
+              download="Tekloria-Services-Brochure-2025.pdf"
+              className="inline-flex items-center gap-2 bg-[#EF4444] hover:bg-[#D93636] text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm"
+            >
+              <Download size={15} />
+              Download Services Brochure (PDF)
+            </a>
+            <button
+              onClick={() => setIsBrochureOpen(true)}
+              className="inline-flex items-center gap-2 bg-white hover:bg-[#F8FAFC] text-[#0B0B0F] border border-[#E5E7EB] hover:border-[#0B0B0F] font-medium text-xs sm:text-sm px-4 py-2.5 rounded-full transition-all duration-200"
+            >
+              <Eye size={15} className="text-[#EF4444]" />
+              Preview Brochure
+            </button>
+          </div>
         </div>
       </section>
 
@@ -165,6 +186,52 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
+        BROCHURE SHOWCASE BANNER
+        ========================================================================
+      */}
+      <section className="pb-12 sm:pb-14 px-6 sm:px-10 max-w-[1200px] mx-auto">
+        <div className="relative overflow-hidden rounded-2xl bg-[#0B0B0F] text-white p-6 sm:p-10 border border-white/10 shadow-xl">
+          <div className="absolute -right-16 -top-16 w-80 h-80 pointer-events-none opacity-40">
+            <ConcentricRipple id="brochure-banner-ripple" variant="soft-rose" placement="top-right" />
+          </div>
+          
+          <div className="relative z-10 max-w-2xl">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#EF4444] mb-3">
+              <FileText size={15} />
+              <span>Official Capabilities Catalog</span>
+            </div>
+            
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+              Need Our Complete Technical Services Brochure?
+            </h2>
+            
+            <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-6">
+              Download our comprehensive 2025–2026 catalog detailing engineering architectures, delivery timelines, SLA guarantees, and service breakdowns in an executive-ready PDF format.
+            </p>
+            
+            <div className="flex flex-wrap items-center gap-3.5">
+              <a
+                href="/tekloria-services-brochure.pdf"
+                download="Tekloria-Services-Brochure-2025.pdf"
+                className="inline-flex items-center gap-2 bg-[#EF4444] hover:bg-[#D93636] text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm"
+              >
+                <Download size={15} />
+                Download PDF Brochure
+              </a>
+              <button
+                onClick={() => setIsBrochureOpen(true)}
+                className="inline-flex items-center gap-2 bg-transparent border border-white/30 hover:border-white text-white hover:bg-white/10 font-medium text-xs sm:text-sm px-4 py-2.5 rounded-full transition-all duration-200"
+              >
+                <Eye size={15} />
+                Interactive Preview
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -240,6 +307,12 @@ export default function Services() {
           onClose={() => setSelectedService(null)}
         />
       )}
+
+      {/* Interactive Brochure Preview Modal */}
+      <BrochureModal
+        isOpen={isBrochureOpen}
+        onClose={() => setIsBrochureOpen(false)}
+      />
     </div>
   );
 }

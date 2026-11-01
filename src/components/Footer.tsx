@@ -53,6 +53,15 @@ export default function Footer() {
                 <li><Link to="/services" className="hover:text-white transition-colors">Graphic &amp; UI/UX</Link></li>
                 <li><Link to="/services" className="hover:text-white transition-colors">Business Strategy</Link></li>
                 <li><Link to="/services" className="hover:text-white transition-colors">HR Recruiting</Link></li>
+                <li className="pt-1">
+                  <a 
+                    href="/tekloria-services-brochure.pdf" 
+                    download="Tekloria-Services-Brochure-2025.pdf" 
+                    className="inline-flex items-center gap-1.5 text-xs text-[#EF4444] hover:underline font-semibold"
+                  >
+                    Download Brochure (PDF) &darr;
+                  </a>
+                </li>
               </ul>
             </div>
 

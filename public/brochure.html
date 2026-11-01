@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tekloria Solutions — Official Services & Capabilities Catalog</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #0B0B0F;
+      background: #FFFFFF;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    
+    .page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      padding: 16mm 20mm;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FFFFFF;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Header Bar */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0B0B0F;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0B0B0F;
+    }
+    .brand-mark {
+      color: #EF4444;
+      font-size: 24pt;
+      line-height: 1;
+    }
+    .header-meta {
+      text-align: right;
+    }
+    .catalog-pill {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #EF4444;
+      background: #FEE2E2;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      display: inline-block;
+    }
+    .catalog-subtitle {
+      font-size: 8pt;
+      color: #64748B;
+      margin-top: 3px;
+    }
+
+    /* Hero Banner (Page 1) */
+    .hero-box {
+      background: #0B0B0F;
+      color: #FFFFFF;
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero-eyebrow {
+      color: #EF4444;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #EF4444;
+    }
+    .hero-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 23pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .hero-heading span {
+      color: #EF4444;
+    }
+    .hero-summary {
+      color: #CBD5E1;
+      font-size: 9.5pt;
+      line-height: 1.5;
+      max-width: 95%;
+    }
+
+    /* KPI Highlights */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .kpi-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    .kpi-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      color: #0B0B0F;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .kpi-val.accent {
+      color: #EF4444;
+    }
+    .kpi-label {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #1E293B;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .kpi-desc {
+      font-size: 7.5pt;
+      color: #64748B;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* Capabilities Matrix (Page 1) */
+    .matrix-section {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .matrix-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: #0B0B0F;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .matrix-badge {
+      font-size: 7.5pt;
+      color: #EF4444;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .matrix-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+    .matrix-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border-bottom: 1px dashed #F1F5F9;
+      padding-bottom: 8px;
+    }
+    .matrix-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: #EF4444;
+      color: white;
+      font-size: 7.5pt;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .matrix-name {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #0B0B0F;
+    }
+    .matrix-sub {
+      font-size: 7.5pt;
+      color: #64748B;
+      line-height: 1.3;
+    }
+
+    /* Services Grid (Pages 2 & 3) */
+    .page-title-box {
+      margin-bottom: 16px;
+    }
+    .page-eyebrow {
+      font-size: 8pt;
+      color: #EF4444;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 3px;
+    }
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: #0B0B0F;
+      letter-spacing: -0.3px;
+    }
+    .page-subtitle {
+      font-size: 8.5pt;
+      color: #64748B;
+      margin-top: 2px;
+    }
+
+    .services-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .service-card {
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 15px 16px;
+      background: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .card-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: #EF4444;
+      color: white;
+      font-size: 8.5pt;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0B0B0F;
+      letter-spacing: -0.2px;
+    }
+    .card-summary {
+      font-size: 8.2pt;
+      color: #475569;
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+    .card-deliverables-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #1E293B;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .card-bullets {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    .card-bullets li {
+      font-size: 8pt;
+      color: #1E293B;
+      font-weight: 600;
+      margin-bottom: 3.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.35;
+    }
+    .card-bullets li::before {
+      content: "•";
+      color: #EF4444;
+      font-size: 12pt;
+      line-height: 0;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      border-top: 1px dashed #E2E8F0;
+      padding-top: 8px;
+      margin-top: auto;
+    }
+    .tech-pill {
+      font-size: 7pt;
+      font-weight: 700;
+      background: #FFFFFF;
+      color: #475569;
+      border: 1px solid #CBD5E1;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Process Section (Page 3) */
+    .methodology-box {
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      background: #FFFFFF;
+      margin-bottom: 14px;
+    }
+    .methodology-header {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0B0B0F;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .methodology-header span {
+      font-size: 7.5pt;
+      color: #EF4444;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .step-item {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .step-phase {
+      font-size: 7pt;
+      font-weight: 800;
+      color: #EF4444;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .step-title {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #0B0B0F;
+      margin-bottom: 3px;
+    }
+    .step-text {
+      font-size: 7pt;
+      color: #64748B;
+      line-height: 1.3;
+    }
+
+    /* CTA Box (Bottom of Page 3) */
+    .cta-card {
+      background: #0B0B0F;
+      border-radius: 10px;
+      padding: 14px 20px;
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    .cta-left h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12pt;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .cta-left p {
+      color: #CBD5E1;
+      font-size: 8pt;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .cta-btn {
+      background: #EF4444;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .cta-tel {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #FFFFFF;
+      white-space: nowrap;
+    }
+
+    /* Page Footer */
+    .page-footer {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 8px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8pt;
+      color: #64748B;
+    }
+    .footer-left {
+      font-weight: 600;
+      color: #1E293B;
+    }
+    .footer-center {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-center span span {
+      color: #EF4444;
+      font-weight: 700;
+    }
+    .footer-right {
+      font-weight: 700;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================================== -->
+  <!-- PAGE 1: EXECUTIVE COVER & CAPABILITIES OVERVIEW                         -->
+  <!-- ====================================================================== -->
+  <div class="page">
+    <div>
+      <!-- Header -->
+      <div class="header-bar">
+        <div class="brand-group">
+          <span class="brand-name">Tekloria</span>
+          <span class="brand-mark">&#10033;</span>
+        </div>
+        <div class="header-meta">
+          <div class="catalog-pill">Official Capabilities Catalog</div>
+          <div class="catalog-subtitle">Enterprise Software Engineering Studio &bull; 2025–2026</div>
+        </div>
+      </div>
+
+      <!-- Hero Banner -->
+      <div class="hero-box">
+        <div class="hero-eyebrow">Engineering &bull; Design &bull; Automation</div>
+        <h1 class="hero-heading">Architecting High-Performance Digital Products for <span>Modern Enterprises</span></h1>
+        <p class="hero-summary">
+          Tekloria is a specialized software engineering and digital transformation studio based in Hyderabad, India. We partner with ambitious startups and established enterprises to design, build, and deploy custom web platforms, cross-platform mobile apps, bespoke ERP systems, and autonomous AI agents designed for frictionless scale.
+        </p>
+      </div>
+
+      <!-- 4 Core KPIs / Guarantees -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-val accent">100%</div>
+          <div class="kpi-label">Code Ownership</div>
+          <div class="kpi-desc">Full unencumbered IP rights, Git repositories, and zero vendor lock-in.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">&lt;1s</div>
+          <div class="kpi-label">Core Web Vitals</div>
+          <div class="kpi-desc">Sub-second load times engineered for high conversion rates and SEO dominance.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">60fps</div>
+          <div class="kpi-label">Mobile UI/UX</div>
+          <div class="kpi-desc">Fluid gestures and offline-first data caching across iOS and Android.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val accent">24/7</div>
+          <div class="kpi-label">AI & Automation</div>
+          <div class="kpi-desc">Intelligent conversational agents and autonomous business workflows.</div>
+        </div>
+      </div>
+
+      <!-- Matrix of All 8 Services at a glance -->
+      <div class="matrix-section">
+        <div class="matrix-title">
+          <span>Our Complete Service Portfolio</span>
+          <span class="matrix-badge">8 Core Engineering Disciplines</span>
+        </div>
+        <div class="matrix-list">
+          <div class="matrix-item">
+            <div class="matrix-num">01</div>
+            <div>
+              <div class="matrix-name">Custom Web Application Development</div>
+              <div class="matrix-sub">Modern Next.js platforms, SPAs, headless e-commerce, and high-volume REST/GraphQL APIs.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">02</div>
+            <div>
+              <div class="matrix-name">Mobile Application Engineering</div>
+              <div class="matrix-sub">Cross-platform React Native & Flutter apps with offline sync and native hardware integrations.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">03</div>
+            <div>
+              <div class="matrix-name">Graphic & UI/UX Product Design</div>
+              <div class="matrix-sub">Visual brand identities, scalable Figma design tokens, interactive prototypes, and marketing assets.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">04</div>
+            <div>
+              <div class="matrix-name">Enterprise ERP & Internal Tools</div>
+              <div class="matrix-sub">Custom operational suites with role-based access control, billing automation, and supply chain tracking.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">05</div>
+            <div>
+              <div class="matrix-name">Business Strategy & Technical SEO</div>
+              <div class="matrix-sub">Organic search visibility, conversion rate optimization (CRO), and telemetry product analytics.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">06</div>
+            <div>
+              <div class="matrix-name">HR Recruiting & Technical Staffing</div>
+              <div class="matrix-sub">Vetted software engineers, UI/UX designers, and tech leads placed within 7–14 business days.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">07</div>
+            <div>
+              <div class="matrix-name">AI Chatbots & Autonomous Agents</div>
+              <div class="matrix-sub">Fine-tuned LLM agents, retrieval-augmented generation (RAG), and 24/7 multi-channel customer engagement.</div>
+            </div>
+          </div>
+          <div class="matrix-item">
+            <div class="matrix-num">08</div>
+            <div>
+              <div class="matrix-name">Intelligent Business Automations</div>
+              <div class="matrix-sub">End-to-end workflow RPA, custom middleware APIs, webhooks, and automated system synchronization.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+      <div class="footer-left">Tekloria Solutions &bull; www.tekloria.in</div>
+      <div class="footer-center">
+        <span><span>Direct Email:</span> contact@tekloria.in</span>
+        <span><span>WhatsApp:</span> +91 85209 50487</span>
+      </div>
+      <div class="footer-right">Page 1 of 3</div>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================== -->
+  <!-- PAGE 2: SERVICES 01 TO 04 (Core Engineering & Product Design)          -->
+  <!-- ====================================================================== -->
+  <div class="page">
+    <div>
+      <!-- Header -->
+      <div class="header-bar">
+        <div class="brand-group">
+          <span class="brand-name">Tekloria</span>
+          <span class="brand-mark">&#10033;</span>
+        </div>
+        <div class="header-meta">
+          <div class="catalog-pill">Core Engineering Disciplines</div>
+          <div class="catalog-subtitle">Services 01 to 04 &bull; Product Development</div>
+        </div>
+      </div>
+
+      <div class="page-title-box">
+        <div class="page-eyebrow">Pillars of Development</div>
+        <h2 class="page-title">Digital Products Engineered for Speed and Scale</h2>
+        <p class="page-subtitle">From user-facing web and mobile storefronts to mission-critical backend operational engines.</p>
+      </div>
+
+      <div class="services-grid-2x2">
+        <!-- 01. Web Development -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">01</div>
+              <div class="card-title">Web Application Development</div>
+            </div>
+            <p class="card-summary">
+              High-performance, accessible single-page (SPA) and server-rendered (SSR) applications built on modern frameworks with strict security and high conversion rates.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Custom SPAs, Micro-frontends & Next.js Platforms</li>
+              <li>Headless E-Commerce with Stripe & Global Gateways</li>
+              <li>Sub-second Core Web Vitals (<1s) for Top SEO Rank</li>
+              <li>High-Throughput RESTful & GraphQL Cloud APIs</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">React 19</span>
+            <span class="tech-pill">Next.js</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">Node.js</span>
+          </div>
+        </div>
+
+        <!-- 02. App Development -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">02</div>
+              <div class="card-title">Mobile App Development</div>
+            </div>
+            <p class="card-summary">
+              Fluid, 60fps native and cross-platform applications engineered for iOS and Android with intuitive gestures and robust offline-first synchronization.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Production iOS & Android Apps from Single Codebase</li>
+              <li>Biometric Auth (FaceID/Fingerprint), Camera & BLE</li>
+              <li>Offline-First SQLite Caching & Real-Time Sync</li>
+              <li>Complete App Store & Google Play Launch Management</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">React Native</span>
+            <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">Firebase</span>
+            <span class="tech-pill">HealthKit</span>
+            <span class="tech-pill">SQLite</span>
+          </div>
+        </div>
+
+        <!-- 03. UI/UX Design -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">03</div>
+              <div class="card-title">Graphic & UI/UX Product Design</div>
+            </div>
+            <p class="card-summary">
+              Human-centered user experience design, comprehensive brand visual identities, interactive Figma component systems, and promotional marketing collateral.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Comprehensive Brand Identity & Logo Guidelines</li>
+              <li>Production-Ready Figma Design Systems & Tokens</li>
+              <li>Interactive Clickable Prototypes & Usability Audits</li>
+              <li>Conversion-Optimized Marketing Creatives & Posters</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">Figma</span>
+            <span class="tech-pill">Design Systems</span>
+            <span class="tech-pill">UI/UX</span>
+            <span class="tech-pill">Brand Identity</span>
+            <span class="tech-pill">Adobe Suite</span>
+          </div>
+        </div>
+
+        <!-- 04. ERP Development -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">04</div>
+              <div class="card-title">Enterprise ERP Systems</div>
+            </div>
+            <p class="card-summary">
+              Bespoke Enterprise Resource Planning software engineered to break data silos, centralize multi-warehouse supply chains, automate billing, and streamline operations.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Granular Role-Based Access Control (RBAC) & Logs</li>
+              <li>Automated Multi-Currency Billing & Tax Calculations</li>
+              <li>Live Multi-Warehouse Inventory & Supply Chain Tracking</li>
+              <li>Seamless Banking, CRM & Logistics API Bridges</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">Redis</span>
+            <span class="tech-pill">Microservices</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+      <div class="footer-left">Tekloria Solutions &bull; www.tekloria.in</div>
+      <div class="footer-center">
+        <span><span>Direct Email:</span> contact@tekloria.in</span>
+        <span><span>WhatsApp:</span> +91 85209 50487</span>
+      </div>
+      <div class="footer-right">Page 2 of 3</div>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================== -->
+  <!-- PAGE 3: SERVICES 05 TO 08, DELIVERY METHODOLOGY & CALL TO ACTION       -->
+  <!-- ====================================================================== -->
+  <div class="page">
+    <div>
+      <!-- Header -->
+      <div class="header-bar">
+        <div class="brand-group">
+          <span class="brand-name">Tekloria</span>
+          <span class="brand-mark">&#10033;</span>
+        </div>
+        <div class="header-meta">
+          <div class="catalog-pill">Growth, AI & Methodology</div>
+          <div class="catalog-subtitle">Services 05 to 08 &bull; Execution Process</div>
+        </div>
+      </div>
+
+      <div class="page-title-box">
+        <div class="page-eyebrow">AI, Growth & Automation</div>
+        <h2 class="page-title">Intelligent Workflows & Strategic Expansion</h2>
+        <p class="page-subtitle">Harness conversational AI, automated data pipelines, and senior tech talent to drive enterprise growth.</p>
+      </div>
+
+      <div class="services-grid-2x2">
+        <!-- 05. Strategy & SEO -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">05</div>
+              <div class="card-title">Business Strategy & SEO</div>
+            </div>
+            <p class="card-summary">
+              Data-engineered organic search architecture, conversion rate optimization (CRO), multi-channel acquisition funnels, and retention metrics.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Comprehensive Technical SEO Auditing & Rich Schemas</li>
+              <li>Conversion Rate Optimization (CRO) & Funnel Testing</li>
+              <li>Multi-Channel Digital Strategy & Targeted Acquisition</li>
+              <li>End-to-End Retention Analytics & Churn Diagnostics</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">Technical SEO</span>
+            <span class="tech-pill">CRO</span>
+            <span class="tech-pill">Google Analytics 4</span>
+            <span class="tech-pill">Growth Funnels</span>
+          </div>
+        </div>
+
+        <!-- 06. HR Recruiting -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">06</div>
+              <div class="card-title">HR Recruiting Services</div>
+            </div>
+            <p class="card-summary">
+              Rigorous technical screening, coding assessments, and placement for senior software developers, product designers, and tech leads.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Deep Coding, Architectural & Problem-Solving Vetting</li>
+              <li>Direct Hire Placement & Dedicated Staff Augmentation</li>
+              <li>Culture & Philosophy Match Assessments</li>
+              <li>Rapid 7–14 Day Candidate Turnaround Pipeline</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">Tech Screening</span>
+            <span class="tech-pill">Staff Augmentation</span>
+            <span class="tech-pill">Direct Hire</span>
+            <span class="tech-pill">Executive Search</span>
+          </div>
+        </div>
+
+        <!-- 07. AI Chatbots -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">07</div>
+              <div class="card-title">AI Chatbots & Agents</div>
+            </div>
+            <p class="card-summary">
+              Intelligent conversational agents and custom LLM workflows that engage customers 24/7, automate support tickets, and triage inquiries.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>Domain-Fine-Tuned LLMs & RAG Architectures</li>
+              <li>24/7 Multi-Channel Sync (Web, WhatsApp, Slack, CRM)</li>
+              <li>Context-Aware Autonomous Task Action Agents</li>
+              <li>Automated Lead Qualification & Bi-Directional CRM Sync</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">OpenAI / Claude</span>
+            <span class="tech-pill">LangChain</span>
+            <span class="tech-pill">RAG</span>
+            <span class="tech-pill">Vector DBs</span>
+            <span class="tech-pill">WhatsApp API</span>
+          </div>
+        </div>
+
+        <!-- 08. Automations -->
+        <div class="service-card">
+          <div>
+            <div class="card-top">
+              <div class="card-num">08</div>
+              <div class="card-title">Intelligent Automations</div>
+            </div>
+            <p class="card-summary">
+              Eliminate manual bottlenecks and human error with bespoke robotic process automations (RPA), custom API webhooks, and system sync.
+            </p>
+            <span class="card-deliverables-title">Key Deliverables</span>
+            <ul class="card-bullets">
+              <li>End-to-End Robotic Process Automation (RPA)</li>
+              <li>Custom Middleware APIs, Webhooks & System Bridges</li>
+              <li>Cross-Platform CRM, ERP & Financial Reconciliation</li>
+              <li>Real-Time Incident Triaging & Automated Alerts</li>
+            </ul>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-pill">RPA</span>
+            <span class="tech-pill">Webhooks</span>
+            <span class="tech-pill">Make / Zapier</span>
+            <span class="tech-pill">REST APIs</span>
+            <span class="tech-pill">Node.js</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delivery Methodology Flow -->
+      <div class="methodology-box">
+        <div class="methodology-header">
+          <span>The Tekloria 4-Stage Delivery Process</span>
+          <span>Transparent &bull; On-Time &bull; Predictable</span>
+        </div>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-phase">Phase 01</div>
+            <div class="step-title">Discovery & Specs</div>
+            <div class="step-text">Requirements audit, user stories, database schemas, and fixed milestone scoping.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-phase">Phase 02</div>
+            <div class="step-title">Agile Sprints</div>
+            <div class="step-text">Two-week agile iterations with live staging demos and continuous feedback.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-phase">Phase 03</div>
+            <div class="step-title">QA & Security</div>
+            <div class="step-text">Load stress testing, security audits, and cross-device responsive verification.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-phase">Phase 04</div>
+            <div class="step-title">Deployment & SLA</div>
+            <div class="step-text">Zero-downtime launch, full code repository handover, and ongoing 24/7 maintenance.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Card -->
+      <div class="cta-card">
+        <div class="cta-left">
+          <h4>Ready to Architect Your Next Breakthrough?</h4>
+          <p>Book a complimentary 30-minute technical consultation with our engineering team.</p>
+        </div>
+        <div class="cta-actions">
+          <span class="cta-tel">WhatsApp: +91 85209 50487</span>
+          <span class="cta-btn">contact@tekloria.in</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+      <div class="footer-left">Tekloria Solutions &bull; www.tekloria.in</div>
+      <div class="footer-center">
+        <span><span>Direct Email:</span> contact@tekloria.in</span>
+        <span><span>WhatsApp:</span> +91 85209 50487</span>
+      </div>
+      <div class="footer-right">Page 3 of 3</div>
+    </div>
+  </div>
+
+</body>
+</html>
