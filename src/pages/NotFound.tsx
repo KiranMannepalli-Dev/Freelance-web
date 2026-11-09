@@ -1,12 +1,18 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Home, Compass, ArrowRight } from 'lucide-react';
 import { ConcentricRipple } from '../components/ConcentricRipple';
+import SEO from '../components/SEO';
 
 export default function NotFound() {
   const navigate = useNavigate();
 
   return (
     <div className="w-full min-h-[80vh] flex flex-col justify-center items-center bg-white text-[#0B0B0F] relative overflow-hidden pt-28 pb-20 px-6 sm:px-10">
+      <SEO 
+        title="404 — Page Not Found"
+        description="The page you are looking for does not exist."
+        canonicalPath="/404"
+      />
       {/* Background Accent Ripple */}
       <div className="absolute -right-20 -top-20 w-[420px] h-[420px] pointer-events-none opacity-30 select-none">
         <ConcentricRipple

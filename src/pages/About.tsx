@@ -1,6 +1,7 @@
 import { Target, Lightbulb, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
+import SEO from '../components/SEO';
 
 export default function About() {
   const team = [
@@ -43,6 +44,12 @@ export default function About() {
 
   return (
     <div className="w-full bg-white text-[#0B0B0F]">
+      <SEO 
+        title="The Squad &amp; The Vision ✦ Who We Are ⚡"
+        description="Meet the engineering squad behind Tekloria. We combine technical rigor with creative fire to build digital products that scale 🚀"
+        canonicalPath="/about"
+        keywords="about Tekloria, freelance development agency, software engineers Hyderabad, custom web development team"
+      />
       {/* 
         ========================================================================
         ABOUT HERO (Background: Beige #F7F5F5 - design.md #12, #45, #76)

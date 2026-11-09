@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
 
-export type PolicyType = 'privacy' | 'terms' | 'sitemap';
+export type PolicyType = 'privacy' | 'terms';
 
 interface PolicyModalProps {
   type: PolicyType;
@@ -100,19 +100,6 @@ const content: Record<PolicyType, { title: string; sections: { heading: string; 
       },
     ],
   },
-  sitemap: {
-    title: 'Site Map',
-    sections: [
-      {
-        heading: 'Core Navigation',
-        body: 'Home — /\nAbout Us — /about\nServices — /services\nPortfolio — /portfolio\nPricing — /pricing\nCareers — /careers\nContact — /contact'
-      },
-      {
-        heading: 'Legal & Policies',
-        body: 'Privacy Policy\nTerms & Conditions\nSite Map'
-      }
-    ]
-  }
 };
 
 // ─── Modal Component ──────────────────────────────────────────────────────────

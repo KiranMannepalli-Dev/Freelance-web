@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
+import SEO from '../components/SEO';
 
 export default function Pricing() {
 
@@ -22,6 +23,12 @@ export default function Pricing() {
 
   return (
     <div className="w-full bg-white text-[#0B0B0F]">
+      <SEO 
+        title="No BS Pricing ✦ Transparent Investment Packages ⚡"
+        description="Crystal-clear pricing for freelance website development, 60fps mobile apps, and custom ERP systems. Zero hidden fees, maximum ROI 🚀"
+        canonicalPath="/pricing"
+        keywords="freelance website development cost, web development packages, app development cost, ERP pricing, hire developer pricing India"
+      />
       {/* 
         ========================================================================
         PRICING SECTION 

@@ -2,10 +2,20 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, ArrowUpRight, X } from 'lucide-react';
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
+import SEO from '../components/SEO';
+
+interface Project {
+  title: string;
+  category: string;
+  desc: string;
+  img: string;
+  tech: string[];
+  scope: string;
+}
 
 export default function Portfolio() {
   const [selectedFilter, setSelectedFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     if (selectedProject) {
@@ -107,6 +117,12 @@ export default function Portfolio() {
 
   return (
     <div className="w-full bg-white text-[#0B0B0F]">
+      <SEO 
+        title="Proof Of Work ✦ Insane Web &amp; App Case Studies ⚡"
+        description="Check out our latest proof of work. Live web applications, fintech apps, e-commerce hubs, and custom enterprise tools that drive real growth 🚀"
+        canonicalPath="/portfolio"
+        keywords="freelance website portfolio, mobile app portfolio, React projects, Next.js web applications, client case studies, Tekloria work"
+      />
       {/* 
         ========================================================================
         PORTFOLIO HERO (Solid Light Background - design.md #75)
@@ -184,8 +200,6 @@ export default function Portfolio() {
                 </div>
 
                 <div className="relative z-10">
-
-
                   <h3 className="text-sm sm:text-base font-semibold text-[#0B0B0F] mb-1.5 line-clamp-1">
                     {proj.title}
                   </h3>

@@ -16,6 +16,7 @@ import {
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
+import SEO from '../components/SEO';
 
 // ─── Open Roles ──────────────────────────────────────────────────────────────
 const openRoles = [
@@ -67,6 +68,12 @@ export default function Careers() {
 
   return (
     <div className="w-full bg-white text-[#0B0B0F]">
+      <SEO 
+        title="Join The Squad ✦ Build The Future With Us ⚡"
+        description="Love shipping fast, clean, and beautiful software? Join Tekloria's ambitious engineering studio. View our open roles 🚀"
+        canonicalPath="/careers"
+        keywords="careers Tekloria, software engineer jobs, web developer hiring Hyderabad, UI UX designer jobs"
+      />
 
       {/* ======================================================================
           HERO

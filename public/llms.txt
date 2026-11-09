@@ -1,0 +1,60 @@
+# Tekloria (Digital Engineering & Development Studio)
+
+> Tekloria is a premier technology studio providing freelance website development, custom mobile applications (iOS & Android), business-related websites, e-commerce stores, and enterprise ERP solutions for modern businesses worldwide.
+
+- Website: https://www.tekloria.in/
+- Headquarters: Hyderabad, Telangana, India
+- Contact Email: contact@tekloria.in
+- Phone / WhatsApp: +91 85209 50487
+- Primary Domain: https://www.tekloria.in/
+
+## Core Specializations
+
+1. **Freelance Website Development**:
+   - Custom Single Page Applications (SPAs) & Server-Side Rendered (SSR) websites using React, Next.js, Node.js, and TypeScript.
+   - Agile development model directly with senior full-stack developers without agency overhead.
+   - 90+ Google PageSpeed Core Web Vitals optimization, semantic HTML5, and automated Technical SEO.
+
+2. **Custom Mobile App Development**:
+   - Cross-platform and native mobile applications for iOS and Android built with React Native and Flutter.
+   - Offline-first data synchronization, biometric authentication (FaceID / Fingerprint), real-time push notifications.
+   - Full deployment and release management on Apple App Store and Google Play Store.
+
+3. **Business Related Websites**:
+   - High-credibility corporate websites for healthcare clinics, real estate firms, legal & consulting agencies, fintech, manufacturing, and tech startups.
+   - Lead generation funnels, booking systems, CRM integrations, and multi-language support.
+
+4. **All Types of Websites & E-Commerce**:
+   - E-commerce stores (Shopify, WooCommerce, custom headless storefronts) with Stripe, Razorpay, and PayPal gateways.
+   - Interactive portfolio websites, digital landing pages, product launch hubs, and SaaS customer dashboards.
+
+5. **Enterprise ERP Systems & Business Automations**:
+   - Custom Enterprise Resource Planning (ERP) software, automated invoicing, inventory tracking, role-based access control (RBAC), and workflow automations.
+
+6. **Graphic & UI/UX Design**:
+   - Human-centered UI/UX design, Figma high-fidelity prototypes, comprehensive design systems, and digital visual branding.
+
+## Official Canonical URLs & Endpoints
+
+- Home: https://www.tekloria.in/
+- Services: https://www.tekloria.in/services
+- Portfolio: https://www.tekloria.in/portfolio
+- Pricing: https://www.tekloria.in/pricing
+- About Us: https://www.tekloria.in/about
+- Contact & Quotes: https://www.tekloria.in/contact
+- Careers: https://www.tekloria.in/careers
+- XML Sitemap: https://www.tekloria.in/sitemap.xml
+- Robots.txt: https://www.tekloria.in/robots.txt
+
+## Verified Social Media Handles
+
+- Instagram: https://www.instagram.com/tekloria.in/ (@tekloria.in)
+- Facebook: https://www.facebook.com/profile.php?id=61596058002423
+- LinkedIn: https://www.linkedin.com/in/tekloria-solutions-a7a00144a
+- WhatsApp: https://wa.me/918520950487
+
+## Leadership & Technical Founders
+
+- Kiran Mannepalli (Co-Founder & Technical Architect)
+- Revanth Kumar Bandi (Co-Founder & Product Lead)
+

@@ -5,6 +5,8 @@ import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
 import BrochureModal from '../components/BrochureModal';
+import FaqSection from '../components/FaqSection';
+import SEO from '../components/SEO';
 import { 
   WebIllustration, 
   AppIllustration, 
@@ -20,8 +22,8 @@ export default function Services() {
     { 
       title: "Web Development", 
       icon: <Code size={28} className="text-[#EF4444]" />, 
-      desc: "High-performance websites and custom web applications built for modern businesses. Using React, Next.js, Node.js, and TypeScript, we build responsive, accessible, and ultra-fast web platforms.",
-      features: ["Custom SPAs & SSR Web Apps", "Headless CMS & E-commerce", "High Core Web Vitals & SEO", "Secure REST & GraphQL APIs"],
+      desc: "Freelance website development and full-stack engineering for modern businesses. We design and develop all types of websites — from corporate and small business portals to e-commerce, custom SaaS, and portfolio websites using React, Next.js, Node.js, and TypeScript.",
+      features: ["Custom SPAs & SSR Web Apps", "Business & Corporate Websites", "E-Commerce & Online Stores", "High Core Web Vitals & SEO"],
       illustration: <WebIllustration />
     },
     { 
@@ -80,6 +82,12 @@ export default function Services() {
 
   return (
     <div className="w-full bg-white text-[#0B0B0F]">
+      <SEO 
+        title="What We Build ✦ Websites, Mobile Apps &amp; ERPs ⚡"
+        description="Explore what we cook: high-speed React/Next.js websites, 60fps Flutter/React Native mobile apps, custom ERPs, and human-centric UI/UX design. Built to scale 🚀"
+        canonicalPath="/services"
+        keywords="freelance website development, app development, mobile app development, business related websites, all types of websites, custom ERP, UI UX design, Tekloria services"
+      />
       {/* 
         ========================================================================
         PAGE HERO (Solid Light Background - design.md #74)
@@ -282,6 +290,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* FAQ & Answer Engine Optimization */}
+      <FaqSection />
 
       {/* 
         ========================================================================

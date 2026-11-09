@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: #0B0B0F;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 70px 80px;
+    }
+    /* Glow circles */
+    .glow-1 {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.22) 0%, rgba(239, 68, 68, 0.04) 50%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .glow-2 {
+      position: absolute;
+      bottom: -150px;
+      left: 150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 60%);
+      filter: blur(70px);
+      pointer-events: none;
+    }
+    /* Grid overlay */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-name {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .brand-asterisk {
+      font-size: 38px;
+      color: #EF4444;
+      line-height: 0.8;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 9999px;
+      color: #EF4444;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #EF4444;
+      border-radius: 50%;
+    }
+    .content {
+      position: relative;
+      z-index: 10;
+      margin-top: 20px;
+      max-width: 980px;
+    }
+    .headline {
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      color: #EF4444;
+    }
+    .subtitle {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.4;
+      font-weight: 400;
+      max-width: 860px;
+    }
+    .footer {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+    }
+    .tags {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tag {
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+    .domain {
+      font-size: 18px;
+      color: #EF4444;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <div class="header">
+    <div class="brand">
+      <span class="brand-name">Tekloria&reg;</span>
+      <span class="brand-asterisk">&#10033;</span>
+    </div>
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>Next-Gen Freelance Studio &bull; Fast Ship ⚡</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1 class="headline">
+      Websites &amp; Mobile Apps That <span class="highlight">Hit Different.</span>
+    </h1>
+    <p class="subtitle">
+      Freelance speed. Enterprise-grade engineering. Zero agency fluff &bull; Transforming ambitious ideas into high-converting digital products.
+    </p>
+  </div>
+
+  <div class="footer">
+    <div class="tags">
+      <span class="tag">✦ Freelance Web Dev</span>
+      <span class="tag">⚡ iOS &amp; Android Apps</span>
+      <span class="tag">✦ Business Websites</span>
+      <span class="tag">⚡ ERP Systems</span>
+    </div>
+    <div class="domain">tekloria.in ↗</div>
+  </div>
+</body>
+</html>
+

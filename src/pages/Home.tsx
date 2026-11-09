@@ -1,8 +1,24 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Smartphone, PenTool, LayoutTemplate, LineChart, Users, CheckCircle2 } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Code, 
+  Smartphone, 
+  PenTool, 
+  LayoutTemplate, 
+  LineChart, 
+  Users, 
+  CheckCircle2,
+  Globe,
+  ShoppingBag,
+  Layers,
+  Laptop,
+  Sparkles
+} from 'lucide-react';
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
+import FaqSection from '../components/FaqSection';
+import SEO from '../components/SEO';
 
 function useTypewriter(text: string, speed = 35, startDelay = 500) {
   const [displayed, setDisplayed] = useState('');
@@ -36,12 +52,57 @@ function useTypewriter(text: string, speed = 35, startDelay = 500) {
 
 export default function Home() {
   const [showPills, setShowPills] = useState(false);
-  const typewriter = useTypewriter("Custom Web & App Development for Modern Businesses");
+  const typewriter = useTypewriter("Freelance Website Development, Mobile Apps & Business Software");
 
   useEffect(() => {
     const timer = setTimeout(() => setShowPills(true), 350);
     return () => clearTimeout(timer);
   }, []);
+
+  const websiteSpecialties = [
+    {
+      title: "Freelance Website Development",
+      badge: "Agile & Direct",
+      desc: "Fast, custom websites engineered with React, Next.js, and TypeScript. Work directly with experienced freelance developers without agency overhead.",
+      icon: <Laptop size={22} className="text-[#EF4444]" />,
+      highlights: ["React & Next.js SPAs", "Fast Time-to-Market", "Clean Maintainable Code"]
+    },
+    {
+      title: "Mobile App Development",
+      badge: "iOS & Android",
+      desc: "End-to-end mobile applications built with React Native and Flutter. 60fps animations, native sensor integration, and store submissions.",
+      icon: <Smartphone size={22} className="text-[#EF4444]" />,
+      highlights: ["Cross-Platform Efficiency", "Offline-First Sync", "App Store & Play Store"]
+    },
+    {
+      title: "Business & Corporate Websites",
+      badge: "Lead Generating",
+      desc: "High-credibility web platforms for businesses, enterprise startups, medical clinics, consulting firms, and local services to convert visitors into clients.",
+      icon: <Globe size={22} className="text-[#EF4444]" />,
+      highlights: ["SEO & Core Web Vitals", "Contact Funnels", "Brand Authority"]
+    },
+    {
+      title: "E-Commerce & Online Stores",
+      badge: "High Conversion",
+      desc: "Custom storefronts and headless commerce with integrated payment gateways (Stripe, Razorpay), automated invoices, and inventory syncing.",
+      icon: <ShoppingBag size={22} className="text-[#EF4444]" />,
+      highlights: ["Multi-Currency Checkout", "Product Catalogues", "Cart Optimization"]
+    },
+    {
+      title: "Custom Web Apps & SaaS",
+      badge: "Scalable Systems",
+      desc: "Interactive web applications, customer portals, billing platforms, and operational dashboards tailored specifically to your unique workflow.",
+      icon: <Layers size={22} className="text-[#EF4444]" />,
+      highlights: ["Role-Based Access", "API & Database Sync", "Real-Time Dashboards"]
+    },
+    {
+      title: "All Types of Custom Sites",
+      badge: "Bespoke Solutions",
+      desc: "From portfolio websites and landing pages to real estate portals, educational platforms, and restaurant systems — built to fit any business model.",
+      icon: <Sparkles size={22} className="text-[#EF4444]" />,
+      highlights: ["Custom Functionality", "Fast Responsive Design", "Fully Managed Deploy"]
+    }
+  ];
 
   const services = [
     { 
@@ -105,6 +166,12 @@ export default function Home() {
 
   return (
     <div className="w-full bg-white">
+      <SEO 
+        title="Next-Gen Websites &amp; Mobile Apps That Hit Different ⚡"
+        description="We engineer insane websites, 60fps mobile apps &amp; high-converting business platforms. ⚡ Freelance speed, enterprise craft, zero agency fluff 🚀"
+        canonicalPath="/"
+        keywords="freelance website development, freelance app development, custom web development, mobile app development, business related websites, all types of websites, hire freelance developer, React web development, Next.js developer, Tekloria"
+      />
       {/* 
         ========================================================================
         HERO SECTION (Scoped ONLY to this container)
@@ -140,7 +207,9 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mt-12 md:mt-0">
           {/* Left Column: Hero Text */}
           <div className="lg:col-span-7 xl:col-span-7 max-w-[660px]">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444] mb-4">
+            <div className="inline-flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#EF4444] mb-4">
+              <span>Freelance Web &amp; App Studio</span>
+              <span className="text-white/40 hidden sm:inline">&bull;</span>
               <span>Ideas &rarr; Code &rarr; Real Solutions</span>
             </div>
 
@@ -431,6 +500,86 @@ export default function Home() {
 
       {/* 
         ========================================================================
+        ALL TYPES OF WEBSITES & APPS (SEO Focus: Freelance Web, Mobile, Business)
+        ========================================================================
+      */}
+      <section className="py-12 sm:py-16 px-6 sm:px-10 max-w-[1200px] mx-auto bg-white border-t border-[#E5E7EB]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div className="max-w-2xl">
+            <div className="text-xs uppercase tracking-wider text-[#EF4444] font-semibold mb-1.5">
+              Specialized Development
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0B0B0F] tracking-tight mb-2.5" style={{ fontFamily: 'var(--font-display)' }}>
+              All Types of Websites &amp; Mobile Applications
+            </h2>
+            <p className="text-[#475569] text-sm sm:text-base leading-relaxed">
+              From nimble freelance website development to enterprise mobile applications and business platforms — we engineer solutions that perform, rank on Google, and convert.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-white bg-[#EF4444] hover:bg-[#D93636] px-5 py-2.5 rounded-full transition-all duration-200 shrink-0 self-start md:self-auto"
+          >
+            Hire a Developer <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {websiteSpecialties.map((spec, i) => (
+            <div
+              key={i}
+              className="relative overflow-hidden p-5 sm:p-6 bg-white border border-[#E5E7EB] rounded-[8px] transition-all duration-300 hover:border-[#EF4444] hover:shadow-md flex flex-col justify-between group"
+            >
+              {/* Concentric Ripple Corner Accent on Hover */}
+              <div className="absolute -right-8 -bottom-8 w-32 h-32 pointer-events-none opacity-0 group-hover:opacity-75 transition-all duration-300 transform group-hover:scale-110">
+                <ConcentricRipple 
+                  id={`home-spec-${i}`} 
+                  variant="soft-rose" 
+                  placement="bottom-right" 
+                />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-[6px] bg-[#F8FAFC] flex items-center justify-center border border-[#E5E7EB]">
+                    {spec.icon}
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 bg-[#F8FAFC] text-[#475569] border border-[#E5E7EB] rounded-full">
+                    {spec.badge}
+                  </span>
+                </div>
+
+                <h3 className="text-base sm:text-lg font-semibold text-[#0B0B0F] mb-2 leading-snug">
+                  {spec.title}
+                </h3>
+                <p className="text-[#475569] text-xs sm:text-sm leading-relaxed mb-4">
+                  {spec.desc}
+                </p>
+
+                <div className="space-y-1.5 mb-5 border-t border-[#F1F5F9] pt-3">
+                  {spec.highlights.map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-xs text-[#475569]">
+                      <CheckCircle2 size={13} className="text-[#EF4444] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B0B0F] group-hover:text-[#EF4444] transition-colors relative z-10 mt-auto"
+              >
+                <span>Request Project Scope</span>
+                <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
         WHY CHOOSE TEKLORIA (Background: Soft Line #F8FAFC - design.md #55)
         ========================================================================
       */}
@@ -666,6 +815,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 
+        ========================================================================
+        FAQ & ANSWER ENGINE OPTIMIZATION (AEO) SECTION
+        ========================================================================
+      */}
+      <FaqSection />
 
       {/* 
         ========================================================================

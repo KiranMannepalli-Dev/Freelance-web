@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build:brochure": "node scripts/generate-brochure-pdf.js",
-    "build": "node scripts/generate-brochure-pdf.js && tsc -b && vite build",
+    "build:og": "node scripts/generate-og-image.js",
+    "build": "node scripts/generate-brochure-pdf.js && node scripts/generate-og-image.js && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
