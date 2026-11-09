@@ -5,6 +5,7 @@ interface SEOProps {
   description?: string;
   canonicalPath?: string;
   keywords?: string;
+  noindex?: boolean;
 }
 
 const DEFAULT_TITLE = 'Tekloria® ✦ Next-Gen Websites & Mobile Apps That Hit Different ⚡';
@@ -15,6 +16,7 @@ export default function SEO({
   description = DEFAULT_DESC,
   canonicalPath = '',
   keywords,
+  noindex = false,
 }: SEOProps) {
   useEffect(() => {
     // 1. Update Document Title with Stylish divider
@@ -33,7 +35,16 @@ export default function SEO({
       meta.setAttribute(attr, value);
     };
 
-    // 3. Update Meta Description
+    // 3. Update Robots Directives (Honor noindex for 404 and unindexed pages)
+    if (noindex) {
+      setMetaTag('meta[name="robots"]', 'content', 'noindex, nofollow');
+      setMetaTag('meta[name="googlebot"]', 'content', 'noindex, nofollow');
+    } else {
+      setMetaTag('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+      setMetaTag('meta[name="googlebot"]', 'content', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
+    }
+
+    // 4. Update Meta Description
     setMetaTag('meta[name="description"]', 'content', description);
 
     // 4. Update Meta Keywords if provided
@@ -97,7 +108,7 @@ export default function SEO({
       breadcrumbScript.remove();
     }
 
-  }, [title, description, canonicalPath, keywords]);
+  }, [title, description, canonicalPath, keywords, noindex]);
 
   return null;
 }

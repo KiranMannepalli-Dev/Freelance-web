@@ -5,7 +5,6 @@ Disallow: /api/
 
 # Official Sitemap Endpoint
 Sitemap: https://www.tekloria.in/sitemap.xml
-Host: https://www.tekloria.in
 
 # LLM & AI Engine Context
 # https://www.tekloria.in/llms.txt

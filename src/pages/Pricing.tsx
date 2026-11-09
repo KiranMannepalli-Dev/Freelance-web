@@ -43,9 +43,9 @@ export default function Pricing() {
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="text-[11px] uppercase tracking-widest text-[#EF4444] font-semibold mb-2">Transparent Pricing</div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B0B0F] tracking-tight mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#0B0B0F] tracking-tight mb-4" style={{ fontFamily: 'var(--font-display)' }}>
               Clear Investment, Real Returns
-            </h2>
+            </h1>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed mb-6">
               Every business is unique. These starting packages provide a baseline for our premium services. We tailor every final proposal to your exact technical scope.
             </p>
