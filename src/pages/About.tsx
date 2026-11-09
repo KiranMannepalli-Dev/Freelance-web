@@ -13,7 +13,7 @@ export default function About() {
     },
     {
       name: "Revanth Kumar Bandi",
-      img: "/Revanth Bandi.jpg",
+      img: "/Revanth.png",
       bgColor: "#F9A8A8",
       curve: "up" as const
     }
