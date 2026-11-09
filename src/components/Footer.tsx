@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PolicyModal, { type PolicyType } from './PolicyModal';
+import { trackWhatsAppClick, trackEmailClick } from '../lib/analytics';
 
 export default function Footer() {
   const [activePolicy, setActivePolicy] = useState<PolicyType | null>(null);
@@ -128,6 +129,7 @@ export default function Footer() {
                   href="https://wa.me/918520950487" 
                   target="_blank" 
                   rel="noopener noreferrer" 
+                  onClick={() => trackWhatsAppClick({ button_location: 'footer' })}
                   className="text-white/70 hover:text-[#25D366] transition-colors" 
                   aria-label="Chat on WhatsApp (+91 85209 50487)"
                   title="Chat on WhatsApp"
@@ -141,7 +143,11 @@ export default function Footer() {
                 {/* Email */}
                 <div>
                   <span className="text-[10px] sm:text-xs text-white/50 block mb-0.5">Email</span>
-                  <a href="mailto:contact@tekloria.in" className="text-[12px] sm:text-sm text-white hover:text-[#EF4444] transition-colors break-all">
+                  <a 
+                    href="mailto:contact@tekloria.in" 
+                    onClick={() => trackEmailClick({ button_location: 'footer' })}
+                    className="text-[12px] sm:text-sm text-white hover:text-[#EF4444] transition-colors break-all"
+                  >
                     contact@tekloria.in
                   </a>
                 </div>

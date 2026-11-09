@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Download } from 'lucide-react';
+import { trackGetStartedClick } from '../lib/analytics';
 
 export default function Navbar() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -89,6 +90,10 @@ export default function Navbar() {
 
           <Link
             to="/contact"
+            onClick={() => trackGetStartedClick({
+              button_location: 'navbar',
+              button_text: 'Get in touch',
+            })}
             className={`inline-flex items-center justify-center text-sm font-medium px-5 py-2 rounded-full border transition-all duration-200 ml-1 ${isDarkHeroNavbar
               ? 'border-white text-white hover:bg-white hover:text-[#0B0B0F]'
               : 'border-[#0B0B0F] text-[#0B0B0F] hover:bg-[#0B0B0F] hover:text-white'

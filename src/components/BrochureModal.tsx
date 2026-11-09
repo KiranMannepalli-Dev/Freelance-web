@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X, Download, Printer, CheckCircle2, FileText, Sparkles, Shield, Cpu } from 'lucide-react';
+import { trackEmailClick } from '../lib/analytics';
 
 interface BrochureModalProps {
   isOpen: boolean;
@@ -410,7 +411,11 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         <div className="px-6 py-4 border-t border-[#E5E7EB] bg-[#F8FAFC] flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs text-[#475569] text-center sm:text-left">
             <span>Have questions or a custom RFP? Reach us directly at </span>
-            <a href="mailto:contact@tekloria.in" className="text-[#EF4444] font-semibold hover:underline">
+            <a 
+              href="mailto:contact@tekloria.in" 
+              onClick={() => trackEmailClick({ button_location: 'brochure_modal' })}
+              className="text-[#EF4444] font-semibold hover:underline"
+            >
               contact@tekloria.in
             </a>
           </div>

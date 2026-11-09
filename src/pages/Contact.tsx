@@ -3,6 +3,12 @@ import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Send, Share2 } from 'luc
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import { useCurrency } from '../context/CurrencyContext';
 import SEO from '../components/SEO';
+import { 
+  trackWhatsAppClick, 
+  trackPhoneClick, 
+  trackEmailClick, 
+  trackContactFormSubmit 
+} from '../lib/analytics';
 
 export default function Contact() {
   const { currency, toggle } = useCurrency();
@@ -40,6 +46,11 @@ export default function Contact() {
       const result = await response.json();
       if (result.success) {
         setSubmitted(true);
+        // Track form submission without any PII (no name, email, phone, or message body)
+        trackContactFormSubmit({
+          service_name: formState.service,
+          budget_range: formState.budget,
+        });
         setFormState({ name: '', email: '', service: 'Web Development', budget: 'Not sure yet', message: '' });
       } else {
         alert("Something went wrong! Please try again.");
@@ -117,7 +128,11 @@ export default function Contact() {
                 </div>
                 <div className="relative z-10">
                   <div className="text-xs uppercase tracking-wider text-[#475569] font-medium mb-0.5">Email Inquiries</div>
-                  <a href="mailto:contact@tekloria.in" className="text-base font-semibold text-[#0B0B0F] hover:text-[#EF4444] transition-colors">
+                  <a 
+                    href="mailto:contact@tekloria.in" 
+                    onClick={() => trackEmailClick({ button_location: 'contact_page' })}
+                    className="text-base font-semibold text-[#0B0B0F] hover:text-[#EF4444] transition-colors"
+                  >
                     contact@tekloria.in
                   </a>
                 </div>
@@ -127,6 +142,10 @@ export default function Contact() {
                 href="https://wa.me/918520950487" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackWhatsAppClick({ button_location: 'contact_page_card' });
+                  trackPhoneClick({ button_location: 'contact_page_phone_card' });
+                }}
                 className="relative overflow-hidden p-6 bg-[#F8FAFC] border border-[#E5E7EB] rounded-[6px] flex items-start gap-4 group hover:border-[#EF4444] transition-all duration-300 cursor-pointer block"
               >
                 <div className="absolute -right-6 -bottom-6 w-24 h-24 pointer-events-none opacity-0 group-hover:opacity-60 transition-all duration-300 transform group-hover:scale-105">
@@ -380,6 +399,7 @@ export default function Contact() {
                       href="https://wa.me/918520950487" 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick({ button_location: 'contact_form_chat' })}
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white font-medium text-base px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group relative overflow-hidden"
                     >
                       <span className="absolute inset-0 w-full h-full bg-white/20 group-hover:animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite] opacity-0 group-hover:opacity-100 rounded-full"></span>

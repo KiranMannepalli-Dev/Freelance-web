@@ -7,6 +7,7 @@ import CardModal from '../components/CardModal';
 import BrochureModal from '../components/BrochureModal';
 import FaqSection from '../components/FaqSection';
 import SEO from '../components/SEO';
+import { trackGetStartedClick } from '../lib/analytics';
 import { 
   WebIllustration, 
   AppIllustration, 
@@ -181,7 +182,14 @@ export default function Services() {
               <div className="pt-1 sm:pt-2 relative z-10 mt-auto">
                 <Link 
                   to="/contact" 
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    trackGetStartedClick({
+                      button_location: 'services_card',
+                      button_text: 'Request Consultation',
+                      service_name: svc.title,
+                    });
+                  }}
                   className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs font-semibold text-[#0B0B0F] hover:text-[#EF4444] transition-colors uppercase sm:normal-case tracking-wider sm:tracking-normal"
                 >
                   <span className="sm:hidden">Consult</span>

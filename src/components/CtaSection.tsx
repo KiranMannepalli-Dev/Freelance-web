@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { trackGetStartedClick } from '../lib/analytics';
 
 interface CtaSectionProps {
   badge?: string;
@@ -82,6 +83,10 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
         <div className="flex flex-wrap items-center gap-3.5 shrink-0">
           <Link 
             to={primaryButtonLink} 
+            onClick={() => trackGetStartedClick({
+              button_location: `cta_section_${id}`,
+              button_text: primaryButtonText,
+            })}
             className="inline-flex items-center justify-center bg-[#EF4444] hover:bg-[#D93636] text-white font-medium text-sm sm:text-base px-6 py-3 rounded-full transition-all duration-200 gap-2 shadow-sm"
           >
             {primaryButtonText} <ArrowRight size={15} />

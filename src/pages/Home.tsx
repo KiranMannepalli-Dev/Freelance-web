@@ -19,6 +19,7 @@ import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import FaqSection from '../components/FaqSection';
 import SEO from '../components/SEO';
+import { trackGetStartedClick } from '../lib/analytics';
 
 function useTypewriter(text: string, speed = 35, startDelay = 500) {
   const [displayed, setDisplayed] = useState('');
@@ -238,6 +239,10 @@ export default function Home() {
               {/* Primary CTA (design.md #38) */}
               <Link 
                 to="/contact" 
+                onClick={() => trackGetStartedClick({
+                  button_location: 'home_hero',
+                  button_text: 'Start a Project',
+                })}
                 className="inline-flex items-center justify-center bg-[#EF4444] hover:bg-[#D93636] text-white font-medium text-sm sm:text-base px-7 py-3 rounded-full transition-all duration-200"
               >
                 Start a Project
@@ -518,6 +523,10 @@ export default function Home() {
           </div>
           <Link
             to="/contact"
+            onClick={() => trackGetStartedClick({
+              button_location: 'home_specialties_hire_dev',
+              button_text: 'Hire a Developer',
+            })}
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-white bg-[#EF4444] hover:bg-[#D93636] px-5 py-2.5 rounded-full transition-all duration-200 shrink-0 self-start md:self-auto"
           >
             Hire a Developer <ArrowRight size={14} />
@@ -568,6 +577,11 @@ export default function Home() {
 
               <Link
                 to="/contact"
+                onClick={() => trackGetStartedClick({
+                  button_location: 'home_specialties_card',
+                  button_text: 'Request Project Scope',
+                  service_name: spec.title,
+                })}
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B0B0F] group-hover:text-[#EF4444] transition-colors relative z-10 mt-auto"
               >
                 <span>Request Project Scope</span>

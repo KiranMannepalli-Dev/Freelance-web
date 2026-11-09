@@ -17,6 +17,7 @@ import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
 import SEO from '../components/SEO';
+import { trackEmailClick } from '../lib/analytics';
 
 // ─── Open Roles ──────────────────────────────────────────────────────────────
 const openRoles = [
@@ -213,7 +214,10 @@ export default function Careers() {
               <div className="relative z-10 mt-auto pt-1 sm:pt-1">
                 <a
                   href={`mailto:contact@tekloria.in?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Tekloria Team,%0A%0AI am interested in applying for the ${encodeURIComponent(role.title)} role.%0A%0APlease find my details below:%0A%0AName:%0AExperience:%0APortfolio / LinkedIn:%0A%0ALooking forward to hearing from you.`}
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    trackEmailClick({ button_location: `careers_apply_${role.title}` });
+                  }}
                   className="inline-flex items-center gap-1 sm:gap-1.5 text-[9px] sm:text-xs font-semibold text-[#0B0B0F] hover:text-[#EF4444] transition-colors uppercase sm:normal-case tracking-wider sm:tracking-normal"
                 >
                   <span className="sm:hidden">Apply</span>
@@ -236,6 +240,7 @@ export default function Careers() {
           </div>
           <a
             href="mailto:contact@tekloria.in?subject=Open Application — Tekloria&body=Hi Tekloria Team,%0A%0AI would like to submit a general application to join your team.%0A%0AName:%0ARole of Interest:%0AExperience:%0APortfolio / LinkedIn:%0A%0ALooking forward to hearing from you."
+            onClick={() => trackEmailClick({ button_location: 'careers_open_application' })}
             className="shrink-0 inline-flex items-center gap-2 text-xs font-semibold border border-[#0B0B0F] text-[#0B0B0F] hover:bg-[#0B0B0F] hover:text-white px-4 py-2.5 rounded-full transition-all duration-200"
           >
             Send Open Application <ArrowRight size={13} />
