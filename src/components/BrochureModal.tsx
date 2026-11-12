@@ -46,29 +46,29 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
       <div className="relative w-full max-w-4xl max-h-[90vh] bg-white text-[#0B0B0F] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#E5E7EB] z-10 animate-in fade-in zoom-in-95 duration-200">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB] bg-[#F8FAFC]">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#EF4444]/10 border border-[#EF4444]/20 flex items-center justify-center text-[#EF4444]">
-              <FileText size={20} />
+        <div className="flex items-start sm:items-center justify-between gap-3 px-4 py-3.5 sm:px-6 sm:py-4 border-b border-[#E5E7EB] bg-[#F8FAFC]">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl bg-[#EF4444]/10 border border-[#EF4444]/20 flex items-center justify-center text-[#EF4444]">
+              <FileText size={18} className="sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-[#0B0B0F]" style={{ fontFamily: 'var(--font-display)' }}>
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span className="font-bold text-base sm:text-lg text-[#0B0B0F] whitespace-nowrap" style={{ fontFamily: 'var(--font-display)' }}>
                   Tekloria&reg; <span className="text-[#EF4444]">&#10033;</span>
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#EF4444]/10 text-[#EF4444] px-2 py-0.5 rounded-full">
+                <span className="inline-flex items-center text-[10px] font-bold uppercase tracking-wider bg-[#EF4444]/10 text-[#EF4444] px-2.5 py-0.5 rounded-full whitespace-nowrap">
                   Services Brochure 2025–2026
                 </span>
               </div>
-              <p className="text-xs text-[#475569]">Official Engineering & Capabilities Catalog</p>
+              <p className="text-xs text-[#475569] mt-0.5 leading-snug">Official Engineering &amp; Capabilities Catalog</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <a
               href="/tekloria-services-brochure.pdf"
               download="Tekloria-Services-Brochure-2025.pdf"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#EF4444] hover:bg-[#D93636] text-white text-xs sm:text-sm font-semibold rounded-full shadow-sm transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-[#EF4444] hover:bg-[#D93636] text-white text-sm font-semibold rounded-full shadow-sm transition-all whitespace-nowrap shrink-0"
             >
               <Download size={15} />
               <span>Download PDF</span>
@@ -77,14 +77,14 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             <button
               onClick={() => window.open('/tekloria-services-brochure.pdf', '_blank')}
               title="Open full PDF in new tab"
-              className="hidden sm:inline-flex p-2 text-[#475569] hover:text-[#0B0B0F] hover:bg-[#E5E7EB]/60 rounded-full transition-colors"
+              className="hidden sm:inline-flex p-2 text-[#475569] hover:text-[#0B0B0F] hover:bg-[#E5E7EB]/60 rounded-full transition-colors shrink-0"
             >
               <Printer size={18} />
             </button>
 
             <button
               onClick={onClose}
-              className="p-2 text-[#475569] hover:text-[#0B0B0F] hover:bg-[#E5E7EB]/60 rounded-full transition-colors"
+              className="p-1.5 sm:p-2 text-[#475569] hover:text-[#0B0B0F] hover:bg-[#E5E7EB]/60 rounded-full transition-colors shrink-0"
               aria-label="Close"
             >
               <X size={20} />
@@ -93,53 +93,53 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-2 px-6 pt-3 pb-2 border-b border-[#E5E7EB] bg-white text-xs font-semibold">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 pt-3 pb-2.5 border-b border-[#E5E7EB] bg-white text-xs font-semibold overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <button
             onClick={() => setActiveTab('overview')}
-            className={`px-3 py-1.5 rounded-lg transition-colors ${activeTab === 'overview' ? 'bg-[#0B0B0F] text-white' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
+            className={`whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg transition-colors ${activeTab === 'overview' ? 'bg-[#0B0B0F] text-white' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
           >
             Brochure Overview
           </button>
           <button
             onClick={() => setActiveTab('services')}
-            className={`px-3 py-1.5 rounded-lg transition-colors ${activeTab === 'services' ? 'bg-[#0B0B0F] text-white' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
+            className={`whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg transition-colors ${activeTab === 'services' ? 'bg-[#0B0B0F] text-white' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
           >
             All 8 Core Services
           </button>
           <button
             onClick={() => setActiveTab('process')}
-            className={`px-3 py-1.5 rounded-lg transition-colors ${activeTab === 'process' ? 'bg-[#0B0B0F] text-white' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
+            className={`whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg transition-colors ${activeTab === 'process' ? 'bg-[#0B0B0F] text-white' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
           >
-            Process & Guarantees
+            Process &amp; Guarantees
           </button>
         </div>
 
         {/* Content Body */}
-        <div className="overflow-y-auto p-6 sm:p-8 space-y-8 flex-1 custom-scrollbar text-[#0B0B0F]">
+        <div className="overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8 flex-1 custom-scrollbar text-[#0B0B0F]">
           
           {activeTab === 'overview' && (
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               {/* Hero Banner */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#0B0B0F] text-white relative overflow-hidden">
+              <div className="p-5 sm:p-8 rounded-2xl bg-[#0B0B0F] text-white relative overflow-hidden">
                 <div className="relative z-10 max-w-2xl">
                   <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#EF4444] mb-2">
                     <Sparkles size={14} />
                     <span>Executive Summary</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-xl sm:text-3xl font-bold tracking-tight mb-2.5 sm:mb-3" style={{ fontFamily: 'var(--font-display)' }}>
                     Engineering High-Performance Digital Products That Scale
                   </h3>
-                  <p className="text-[#CBD5E1] text-sm sm:text-base leading-relaxed mb-6">
+                  <p className="text-[#CBD5E1] text-xs sm:text-base leading-relaxed mb-5 sm:mb-6">
                     Tekloria is a specialized software engineering studio based in Hyderabad, India. We architect custom single-page and server-rendered web applications, native and cross-platform mobile apps, bespoke enterprise ERP suites, and autonomous AI agents for modern companies.
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
                     <a
                       href="/tekloria-services-brochure.pdf"
                       download="Tekloria-Services-Brochure-2025.pdf"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#EF4444] hover:bg-[#D93636] text-white text-sm font-semibold rounded-full shadow-sm transition-all"
+                      className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#EF4444] hover:bg-[#D93636] text-white text-xs sm:text-sm font-semibold rounded-full shadow-sm transition-all"
                     >
-                      <Download size={16} />
-                      Download Complete PDF Brochure (3 Pages)
+                      <Download size={15} className="shrink-0" />
+                      <span>Download Complete PDF Brochure (3 Pages)</span>
                     </a>
                   </div>
                 </div>
@@ -191,15 +191,15 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
 
           {activeTab === 'services' && (
             <div className="space-y-5">
-              <div className="flex justify-between items-center mb-2">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-2">
                 <div>
-                  <h3 className="text-xl font-bold text-[#0B0B0F]">Comprehensive Service Portfolio</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0B0B0F]">Comprehensive Service Portfolio</h3>
                   <p className="text-xs text-[#475569]">Detailed scope for each of our 8 core engineering disciplines</p>
                 </div>
                 <a
                   href="/tekloria-services-brochure.pdf"
                   download="Tekloria-Services-Brochure-2025.pdf"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#EF4444] text-white text-xs font-semibold rounded-full hover:bg-[#D93636] transition-colors"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#EF4444] text-white text-xs font-semibold rounded-full hover:bg-[#D93636] transition-colors whitespace-nowrap shrink-0"
                 >
                   <Download size={13} /> Download PDF
                 </a>
@@ -408,7 +408,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
         </div>
 
         {/* Modal Footer */}
-        <div className="px-6 py-4 border-t border-[#E5E7EB] bg-[#F8FAFC] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-t border-[#E5E7EB] bg-[#F8FAFC] flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
           <div className="text-xs text-[#475569] text-center sm:text-left">
             <span>Have questions or a custom RFP? Reach us directly at </span>
             <a 
@@ -424,14 +424,14 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             <a
               href="/tekloria-services-brochure.pdf"
               download="Tekloria-Services-Brochure-2025.pdf"
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#EF4444] hover:bg-[#D93636] text-white text-xs sm:text-sm font-semibold rounded-full shadow-sm transition-all"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#EF4444] hover:bg-[#D93636] text-white text-xs sm:text-sm font-semibold rounded-full shadow-sm transition-all whitespace-nowrap"
             >
-              <Download size={15} />
+              <Download size={15} className="shrink-0" />
               <span>Download PDF Brochure</span>
             </a>
             <button
               onClick={onClose}
-              className="px-4 py-2.5 border border-[#E5E7EB] hover:bg-white text-xs sm:text-sm font-medium rounded-full text-[#475569] transition-colors"
+              className="px-4 py-2.5 border border-[#E5E7EB] hover:bg-white text-xs sm:text-sm font-medium rounded-full text-[#475569] transition-colors shrink-0 whitespace-nowrap"
             >
               Close
             </button>

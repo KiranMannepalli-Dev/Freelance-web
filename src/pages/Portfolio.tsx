@@ -86,7 +86,7 @@ export default function Portfolio() {
     },
     {
       title: "Winev Bike Rentals",
-      link: "https://winev-bike-rentals.vercel.app/",
+      link: "https://www.winevbikerentals.com/",
       img: "/Winev Bikes.png"
     },
     {

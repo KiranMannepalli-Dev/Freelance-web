@@ -18,6 +18,7 @@ import {
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import FaqSection from '../components/FaqSection';
+import InstagramUgcReviews from '../components/InstagramUgcReviews';
 import SEO from '../components/SEO';
 import { trackGetStartedClick } from '../lib/analytics';
 
@@ -147,7 +148,7 @@ export default function Home() {
     { num: "06", title: "Launch", desc: "Seamless deployment, scaling, and ongoing performance support." },
   ];
 
-  const clients = [
+  const clients: { name: string; logo: string; category: string; link?: string }[] = [
     {
       name: "KickZo",
       logo: "/KickZo Logo.png",
@@ -157,6 +158,7 @@ export default function Home() {
       name: "Winev",
       logo: "/Second Logo for Winev-Photoroom.png",
       category: "Smart Mobility & Rentals",
+      link: "https://www.winevbikerentals.com/",
     },
     {
       name: "Yedz Media",
@@ -421,25 +423,44 @@ export default function Home() {
 
           <div className="overflow-hidden py-2">
             <div className="animate-marquee gap-4 sm:gap-6 flex items-center">
-              {[...clients, ...clients, ...clients, ...clients, ...clients].map((client, idx) => (
-                <div 
-                  key={`${client.name}-${idx}`} 
-                  title={`${client.name} — ${client.category}`}
-                  className="group flex flex-col items-center justify-center shrink-0 transition-all duration-300 cursor-default"
-                >
-                  <div className="h-16 sm:h-20 w-36 sm:w-44 px-4 sm:px-6 py-2.5 rounded-[6px] bg-white border border-[#E5E7EB] hover:border-[#EF4444]/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] group-hover:shadow-md transform group-hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="max-h-10 sm:max-h-12 max-w-full object-contain transform group-hover:scale-105 transition-all duration-300"
-                      loading="lazy"
-                    />
+              {[...clients, ...clients, ...clients, ...clients, ...clients].map((client, idx) => {
+                const cardContent = (
+                  <>
+                    <div className="h-16 sm:h-20 w-36 sm:w-44 px-4 sm:px-6 py-2.5 rounded-[6px] bg-white border border-[#E5E7EB] hover:border-[#EF4444]/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] group-hover:shadow-md transform group-hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className="max-h-10 sm:max-h-12 max-w-full object-contain transform group-hover:scale-105 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                    <span className="text-[11px] font-medium text-[#64748B] group-hover:text-[#0B0B0F] mt-2 transition-colors whitespace-nowrap">
+                      {client.name}
+                    </span>
+                  </>
+                );
+
+                return client.link ? (
+                  <a
+                    key={`${client.name}-${idx}`}
+                    href={client.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${client.name} — ${client.category} (Visit Live Site)`}
+                    className="group flex flex-col items-center justify-center shrink-0 transition-all duration-300 cursor-pointer"
+                  >
+                    {cardContent}
+                  </a>
+                ) : (
+                  <div
+                    key={`${client.name}-${idx}`}
+                    title={`${client.name} — ${client.category}`}
+                    className="group flex flex-col items-center justify-center shrink-0 transition-all duration-300 cursor-default"
+                  >
+                    {cardContent}
                   </div>
-                  <span className="text-[11px] font-medium text-[#64748B] group-hover:text-[#0B0B0F] mt-2 transition-colors whitespace-nowrap">
-                    {client.name}
-                  </span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -829,6 +850,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 
+        ========================================================================
+        INSTAGRAM UGC REVIEWS SECTION
+        ========================================================================
+      */}
+      <InstagramUgcReviews />
 
       {/* 
         ========================================================================
